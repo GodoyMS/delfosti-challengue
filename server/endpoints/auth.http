@@ -1,0 +1,43 @@
+@baseUrl = http://localhost:5000/api
+
+### REGISTRAR UN USUARIO
+POST {{baseUrl}}/auth/signup
+Content-Type: application/json
+Accept: application/json
+
+{
+	"codWorker":"5",
+	"name":"Godoy vendedor2",
+	"password":"Godoy vendedor2",
+	"email":"godoyvendedor2@gmail.com",
+	"phone":"+51 913464041",
+	"job":"Cotizador",
+	"rol":"Vendedor"
+}
+
+
+### LOGUEARSE COMO USUARIO
+POST {{baseUrl}}/auth/signin
+Content-Type: application/json
+Accept: application/json
+
+{
+	"email":"godoyworker1@gmail.com",
+	"password":"Godoy Worker 1"
+}
+
+
+### OBTENER DATOS DE AUTENTICACION
+GET {{baseUrl}}/check-auth/getAuthData
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+
+### DESLOGUEARSE
+GET {{baseUrl}}/auth/signout
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+

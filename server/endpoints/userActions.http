@@ -1,0 +1,64 @@
+@baseUrl = http://localhost:5000/api
+
+
+
+### CREAR UN PRODUCTO
+POST {{baseUrl}}/products/create
+Content-Type: application/json
+Accept: application/json
+
+{
+	"sku":"K04327",
+	"name":"Product 1",
+	"type":"Type 1",
+	"tag":"Tag1, Tag2, Tag3, Tag,4",
+	"price":500,
+	"unit":"Soles"
+}
+
+
+
+### CREAR UN PEDIDO
+POST {{baseUrl}}/user/orders/create
+Content-Type: application/json
+Accept: application/json
+
+{
+	"numberOrder":4,
+	"productsList":["66452ea33b8aa78b354fc9fc","66452fb670e20c80784b032f"],
+	"sellerId":"6645317964cc162199b823e2",
+	"deliveryManId":"6645314864cc162199b823de"
+}
+
+
+### ACTUALIZAR ESTADO DE UN PEDIDO, (TAMBIEN SE ACTUALIZA LA FECHA DE CADA ETAPA)
+PUT {{baseUrl}}/user/orders/update/6645320364cc162199b823ec
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+{
+	"state":"Recibido"
+}
+
+
+### OBTENER USUARIOS
+GET {{baseUrl}}/user/users/read
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+### OBTENER PRODUCTOS Y FILTRADO POR SKU O NOMBRE
+GET {{baseUrl}}/user/products/read?search=K04320&page=1&limit=5
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+
+### OBTENER PEDIDOS Y FILTRAR POR NUMERO DE ORDEN
+GET {{baseUrl}}/user/orders/read?numberOrder=2&page=1&limit=5
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+
